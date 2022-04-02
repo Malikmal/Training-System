@@ -7,7 +7,7 @@ export class SkillRepository {
     @InjectModel(Skill.name) private skillModel: Model<SkillDocument>,
   ) {}
 
-  async getAll() {
+  async getAll(): Promise<Skill[]> {
     return this.skillModel.find();
   }
 }

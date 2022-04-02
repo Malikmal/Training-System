@@ -26,5 +26,8 @@ Content-Type: application/json
     "profile": "profile-example"
 }
 
-### 4.1 List of skill
+### 0.1 List of all profiles
+GET http://localhost:3000/profile HTTP/1.1
+
+### 4.1 List of all skills
 GET http://localhost:3000/skill HTTP/1.1
