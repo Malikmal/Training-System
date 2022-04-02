@@ -184,11 +184,12 @@ Response status: 200
       -	Response status: 401
 
 
-4.	Skills
-4.1.	List of skills (v1/skills?token={AUTHORIZATION_TOKEN}), only logged users can access this API service.
+## 4.	Skills
+### 4.1.	List of skills (v1/skills?token={AUTHORIZATION_TOKEN}), only logged users can access this API service.
 Description: Return the list of registered skills with activities registered in the database;
 Request method: GET
-Header: header authorization basic 
+Header: header authorization basic
+ 
 Response result:
   -	If success, body:
       -	Array of skills. Each skill contains:
