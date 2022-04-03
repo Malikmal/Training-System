@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { SkillModule } from './skill/skill.module';
 import { ProfileModule } from './profile/profile.module';
 import { ConfigModule } from '@nestjs/config';
+import { ActivityModule } from './activity/activity.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ConfigModule } from '@nestjs/config';
     AuthModule,
     SkillModule,
     ProfileModule,
+    ActivityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
