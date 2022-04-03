@@ -38,6 +38,7 @@ Content-Type: application/json
 
 ### 4.1 List of all skills
 GET http://localhost:3000/skill HTTP/1.1
+Authorization: Basic dXNlcm5hbWUtZXhhbXBsZTpwYXNzd29yZC1leGFtcGxl
 
 
 ### 3.1 get list all activities
