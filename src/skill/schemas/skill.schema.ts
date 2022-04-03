@@ -12,37 +12,6 @@ export class Skill {
     required: true,
   })
   skill_name: string;
-
-  //   @Prop({
-  //     required: true,
-  //   })
-  //   title: string;
-
-  //   @Prop({
-  //     required: true,
-  //   })
-  //   description: string;
-
-  //   @Prop({
-  //     required: true,
-  //   })
-  //   startDate: string;
-
-  //   @Prop({
-  //     required: true,
-  //   })
-  //   endDate: string;
-
-  //   @Prop({
-  //     required: true,
-  //     type: [
-  //       {
-  //         type: mongoose.Schema.Types.ObjectId,
-  //         ref: User.name,
-  //       },
-  //     ],
-  //   })
-  //   participants: User[];
 }
 
 export const SkillSchema = SchemaFactory.createForClass(Skill);

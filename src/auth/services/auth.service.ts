@@ -22,23 +22,34 @@ export class AuthService {
     return passwordIsValid ? user : null;
   }
 
-  async login(user: User) {
+  async login(user: User): Promise<any> {
     const payload = { username: user.username, sub: user.id };
 
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+    // return {
+    //   token: this.jwtService.sign(payload),
+    //   profile: user.profile,
+    // };
+    return this.jwtService.sign(payload);
   }
 
   async logout() {
-    return 'success logout';
+    // TODO remove generated token
+    // return 'success logout';
   }
 
   async register(authRegisterDto: AuthRegisterDto) {
     // return authRegisterDto;
-    return this.userService.create({
-      // id: uuidv4(),
+    const user = await this.userService.create({
       ...authRegisterDto,
     });
+
+    const payload = {
+      username: user.username,
+      sub: user.id,
+    };
+
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
   }
 }

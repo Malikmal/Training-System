@@ -5,11 +5,13 @@ import {
   Post,
   Req,
   Request,
+  Res,
   UseGuards,
 } from '@nestjs/common';
 import { AuthRegisterDto } from 'src/auth/dto/auth.register.dto';
 import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
 import { AuthService } from 'src/auth/services/auth.service';
+import { BasicAuthGuard } from '../guards/basic-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -17,34 +19,28 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  async login(@Request() req) {
-    return this.authService.login(req.user);
+  async login(@Request() req, @Res() res) {
+    const token = await this.authService.login(req.user);
+    return res.status(200).send({
+      token,
+      profile: req.user.profile,
+    });
   }
 
   @Get('logout')
-  async logout() {
-    // return 'logout';
-    return this.authService.logout();
+  async logout(@Res() res) {
+    await this.authService.logout();
+    return res.status(200).send({
+      message: 'logout success',
+    });
   }
 
+  // @UseGuards(LocalAuthGuard)
   @Post('register')
-  async register(
-    // @Body('name') name: string,
-    // @Body('email') email: string,
-    // @Body('username') username: string,
-    // @Body('password') password: string,
-    // @Body('profile') profile: string,
-    @Body() authRegisterDto: AuthRegisterDto,
-  ) {
-    // return 'register';
-    // return {
-    //   name,
-    //   email,
-    //   username,
-    //   password,
-    //   profile,
-    // };
-    // return authRegisterDto;
-    return this.authService.register(authRegisterDto);
+  async register(@Body() authRegisterDto: AuthRegisterDto, @Res() res) {
+    await this.authService.register(authRegisterDto);
+    return res.status(200).send({
+      message: 'create success',
+    });
   }
 }

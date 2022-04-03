@@ -1,5 +1,6 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
-import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
+import { BasicAuthGuard } from 'src/auth/guards/basic-auth.guard';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { Profile } from '../schemas/profile.schema';
 import { ProfileService } from '../services/profile.service';
 
@@ -7,7 +8,7 @@ import { ProfileService } from '../services/profile.service';
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
-  @UseGuards(LocalAuthGuard)
+  @UseGuards(BasicAuthGuard, JwtAuthGuard)
   @Get()
   async index(): Promise<Profile[]> {
     return this.profileService.getAll();

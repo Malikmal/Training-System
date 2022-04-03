@@ -18,7 +18,7 @@ import { BasicStrategya } from './strategies/basic.strategy';
       signOptions: { expiresIn: '3600s' },
     }),
   ],
-  providers: [AuthService, LocalStrategy, BasicStrategya],
+  providers: [AuthService, LocalStrategy, JwtStrategy, BasicStrategya],
   controllers: [AuthController],
 })
 export class AuthModule {}
