@@ -5,10 +5,10 @@ import { User } from 'src/user/schemas/user.schema';
 export type SkillDocument = Skill & Document;
 
 export class Skill {
-  @Prop({
-    required: true,
-  })
-  id: string;
+  // @Prop({
+  //   required: true,
+  // })
+  // id: string;
 
   @Prop({
     required: true,

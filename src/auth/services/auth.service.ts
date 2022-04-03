@@ -18,7 +18,7 @@ export class AuthService {
   async register(authRegisterDto: AuthRegisterDto) {
     // return authRegisterDto;
     return this.userService.create({
-      id: uuidv4(),
+      // id: uuidv4(),
       ...authRegisterDto,
     });
   }
