@@ -1,7 +1,7 @@
-import { AuthRegister.Dto } from './auth.register.dto';
+import { AuthRegisterDto } from './auth.register.dto';
 
-describe('AuthRegister.Dto', () => {
+describe('AuthRegisterDto', () => {
   it('should be defined', () => {
-    expect(new AuthRegister.Dto()).toBeDefined();
+    expect(new AuthRegisterDto()).toBeDefined();
   });
 });

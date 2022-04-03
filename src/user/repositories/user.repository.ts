@@ -11,4 +11,8 @@ export class UserRepository {
     const newUser = new this.userModel(user);
     return newUser.save();
   }
+
+  async getByUsername(username: string): Promise<User> {
+    return this.userModel.findOne({ username });
+  }
 }

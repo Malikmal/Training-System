@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
 import { Profile } from '../schemas/profile.schema';
 import { ProfileService } from '../services/profile.service';
 
@@ -6,6 +7,7 @@ import { ProfileService } from '../services/profile.service';
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
+  @UseGuards(LocalAuthGuard)
   @Get()
   async index(): Promise<Profile[]> {
     return this.profileService.getAll();

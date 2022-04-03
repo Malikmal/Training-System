@@ -8,6 +8,11 @@ export type ActivityDocument = Activity & Document;
 export class Activity {
   @Prop({
     required: true,
+  })
+  id: string;
+
+  @Prop({
+    required: true,
     type: [
       {
         type: mongoose.Schema.Types.ObjectId,

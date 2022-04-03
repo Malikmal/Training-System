@@ -1,7 +1,7 @@
-import { ActivityCreate.Dto } from './activity.create.dto';
+import { ActivityCreateDto } from './activity.create.dto';
 
-describe('ActivityCreate.Dto', () => {
+describe('ActivityCreateDto', () => {
   it('should be defined', () => {
-    expect(new ActivityCreate.Dto()).toBeDefined();
+    expect(new ActivityCreateDto()).toBeDefined();
   });
 });
