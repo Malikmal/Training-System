@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "6249435414d38b660e1ee431"
+  },
+  "skill_name": "Javascript",
+  "id": "e4918df1-a3b8-4c85-9112-ea0a2d927434"
+},{
+  "_id": {
+    "$oid": "6249436214d38b660e1ee432"
+  },
+  "skill_name": "NodeJS",
+  "id": "d6306c2e-5921-466f-b54e-aff0f9888303"
+}]
