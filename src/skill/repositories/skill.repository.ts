@@ -10,4 +10,16 @@ export class SkillRepository {
   async getAll(): Promise<Skill[]> {
     return this.skillModel.find();
   }
+
+  async getById(skillId: string): Promise<Skill> {
+    // return this.skillModel.findOne({ kill_id: skillId });
+    return new Promise(async (resolve, reject) => {
+      try {
+        const skill = await this.skillModel.findOne({ kill_id: skillId });
+        resolve(skill);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
 }

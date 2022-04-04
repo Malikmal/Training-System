@@ -19,8 +19,8 @@ export class ActivityRepository {
   }
 
   async create(activity: Activity): Promise<Activity> {
+    return activity;
     const newActivity = new this.activityModel(activity);
-    return newActivity;
     return newActivity.save();
   }
 

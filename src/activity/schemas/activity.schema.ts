@@ -1,10 +1,11 @@
-import { Prop, SchemaFactory } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import { Skill } from 'src/skill/schemas/skill.schema';
 import { User } from 'src/user/schemas/user.schema';
 
 export type ActivityDocument = Activity & Document;
 
+@Schema()
 export class Activity {
   @Prop({
     required: true,
@@ -13,14 +14,14 @@ export class Activity {
 
   @Prop({
     required: true,
-    type: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Skill.name,
-      },
-    ],
+    // type: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: Skill.name,
+    //   },
+    // ],
   })
-  skill_id: Skill;
+  skill_id: string; //Skill;
 
   @Prop({
     required: true,
@@ -51,13 +52,13 @@ export class Activity {
 
   @Prop({
     required: true,
-    type: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User.name,
-      },
-    ],
+    // type: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: User.name,
+    //   },
+    // ],
   })
-  participants: User[];
+  participants: string[]; //User[];
 }
 export const ActivitySchema = SchemaFactory.createForClass(Activity);
